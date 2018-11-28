@@ -1,0 +1,35 @@
+{% extends "users/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-4 mx-auto">
+            <div class="content-section">
+              <form method="POST">
+                  {% csrf_token %}
+                  <fieldset class="form-group">
+                      <legend class="border-bottom mb-4">Iniciar sesi&oacute;n</legend>
+                      {{ form|crispy }}
+                      <small class="text-muted">
+                        <a class="nav-link js-scroll-trigger" href="{% url 'password_reset' %}">¿Has olvidado tu contrase&ntilde;a?</a>
+                  </small> 
+                  </fieldset>
+                  <div class="form-group">
+                      <button class="btn btn-primary btn-xl js-scroll-trigger" type="submit">Entrar</button>
+                  </div>
+              </form>
+              <div class="border-top pt-3">
+                               
+                  <small class="text-muted">
+                       <a class="ml-2" href="">Crear cuenta</a>
+                  </small>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% endblock content %}
+

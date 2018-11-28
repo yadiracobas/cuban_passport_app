@@ -1,0 +1,29 @@
+{% extends "users/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-4 mx-auto">
+            <div class="content-section">
+              <form method="POST">
+                  {% csrf_token %}
+                  <fieldset class="form-group">
+                      <legend class="border-bottom mb-4">Registrarse</legend>
+                      {{ form|crispy }}
+                      <small class="text-muted">
+                        <a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Iniciar sesi&oacute;n</a>
+                      </small> 
+                  </fieldset>
+                  <div class="form-group">
+                      <button class="btn btn-primary btn-xl js-scroll-trigger" type="submit">Registrar</button>
+                  </div>
+              </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    {% endblock content %}
+
